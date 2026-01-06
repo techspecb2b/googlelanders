@@ -106,8 +106,8 @@
         }
 
         .logo-icon {
-            width: 44px;
-            height: 44px;
+            width: 120px;
+            height: 48px;
         }
 
         .logo-icon img {
@@ -151,6 +151,93 @@
             padding: 120px 24px 80px;
             position: relative;
             z-index: 1;
+            overflow: hidden;
+        }
+
+        /* FLOATING DEVICES */
+        .floating-devices {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.15;
+        }
+
+        .device {
+            position: absolute;
+            stroke: var(--purple-bright);
+            fill: none;
+            stroke-width: 1.5;
+            filter: drop-shadow(0 0 20px var(--purple-glow));
+        }
+
+        .device-phone {
+            width: 140px;
+            height: auto;
+            top: 15%;
+            left: 8%;
+            transform: rotate(-15deg);
+            animation: float1 6s ease-in-out infinite;
+        }
+
+        .device-tablet {
+            width: 200px;
+            height: auto;
+            top: 20%;
+            right: 5%;
+            transform: rotate(12deg);
+            animation: float2 7s ease-in-out infinite;
+        }
+
+        .device-laptop {
+            width: 240px;
+            height: auto;
+            bottom: 15%;
+            left: 5%;
+            transform: rotate(8deg);
+            animation: float3 8s ease-in-out infinite;
+        }
+
+        .device-console {
+            width: 160px;
+            height: auto;
+            bottom: 20%;
+            right: 8%;
+            transform: rotate(-10deg);
+            animation: float4 7s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: rotate(-15deg) translateY(0); }
+            50% { transform: rotate(-15deg) translateY(-20px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: rotate(12deg) translateY(0); }
+            50% { transform: rotate(12deg) translateY(-25px); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: rotate(8deg) translateY(0); }
+            50% { transform: rotate(8deg) translateY(-15px); }
+        }
+
+        @keyframes float4 {
+            0%, 100% { transform: rotate(-10deg) translateY(0); }
+            50% { transform: rotate(-10deg) translateY(-20px); }
+        }
+
+        @media (max-width: 768px) {
+            .floating-devices {
+                opacity: 0.08;
+            }
+            .device-phone { width: 80px; left: 2%; }
+            .device-tablet { width: 120px; right: 2%; }
+            .device-laptop { width: 140px; left: 2%; }
+            .device-console { width: 100px; right: 2%; }
         }
 
         .hero-badge {
@@ -554,6 +641,71 @@
 
     <!-- HERO -->
     <section class="hero">
+        <!-- FLOATING DEVICES -->
+        <div class="floating-devices">
+            <!-- Phone (Modern iPhone with Dynamic Island) -->
+            <svg class="device device-phone" viewBox="0 0 60 120">
+                <rect x="5" y="5" width="50" height="110" rx="12" ry="12"/>
+                <rect x="8" y="8" width="44" height="104" rx="10"/>
+                <!-- Dynamic Island -->
+                <rect x="20" y="12" width="20" height="7" rx="3.5" fill="var(--purple-bright)" stroke="none"/>
+                <!-- Screen content lines -->
+                <rect x="14" y="28" width="32" height="3" rx="1.5" opacity="0.5"/>
+                <rect x="14" y="36" width="24" height="3" rx="1.5" opacity="0.3"/>
+                <rect x="14" y="44" width="28" height="3" rx="1.5" opacity="0.3"/>
+                <!-- Bottom bar -->
+                <rect x="22" y="102" width="16" height="4" rx="2"/>
+            </svg>
+            
+            <!-- Tablet/iPad -->
+            <svg class="device device-tablet" viewBox="0 0 150 200">
+                <rect x="5" y="5" width="140" height="190" rx="12" ry="12"/>
+                <rect x="12" y="20" width="126" height="160" rx="4"/>
+                <circle cx="75" cy="190" r="6"/>
+                <circle cx="75" cy="12" r="3"/>
+            </svg>
+            
+            <!-- Laptop -->
+            <svg class="device device-laptop" viewBox="0 0 200 130">
+                <rect x="25" y="5" width="150" height="95" rx="8" ry="8"/>
+                <rect x="32" y="12" width="136" height="78" rx="2"/>
+                <path d="M5 100 L20 100 L25 95 L175 95 L180 100 L195 100 L195 110 Q195 120 185 120 L15 120 Q5 120 5 110 Z"/>
+                <ellipse cx="100" cy="115" rx="30" ry="4"/>
+            </svg>
+            
+            <!-- Nintendo Switch -->
+            <svg class="device device-console" viewBox="0 0 200 85">
+                <!-- Left Joy-Con -->
+                <rect x="5" y="5" width="45" height="75" rx="10" ry="22"/>
+                <!-- Left Joystick -->
+                <circle cx="27" cy="28" r="10"/>
+                <circle cx="27" cy="28" r="6" opacity="0.5"/>
+                <!-- Left Buttons -->
+                <rect x="22" y="48" width="10" height="3" rx="1.5"/>
+                <rect x="25" y="44" width="3" height="10" rx="1.5"/>
+                <!-- Left SR/SL -->
+                <rect x="8" y="60" width="8" height="4" rx="1"/>
+                <rect x="8" y="66" width="8" height="4" rx="1"/>
+                
+                <!-- Screen -->
+                <rect x="50" y="8" width="100" height="69" rx="4" ry="4"/>
+                <rect x="54" y="12" width="92" height="61" rx="2" opacity="0.5"/>
+                
+                <!-- Right Joy-Con -->
+                <rect x="150" y="5" width="45" height="75" rx="10" ry="22"/>
+                <!-- Right Buttons (ABXY) -->
+                <circle cx="173" cy="24" r="4"/>
+                <circle cx="181" cy="32" r="4"/>
+                <circle cx="165" cy="32" r="4"/>
+                <circle cx="173" cy="40" r="4"/>
+                <!-- Right Joystick -->
+                <circle cx="173" cy="58" r="10"/>
+                <circle cx="173" cy="58" r="6" opacity="0.5"/>
+                <!-- Right SR/SL -->
+                <rect x="184" y="60" width="8" height="4" rx="1"/>
+                <rect x="184" y="66" width="8" height="4" rx="1"/>
+            </svg>
+        </div>
         <div class="hero-badge">
             <span class="badge-dot"></span>
             Mobile Device Services
