@@ -6,6 +6,15 @@
     <!-- EDIT: Page title -->
     <title>iFIX'em</title>
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-784464144"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-784464144');
+    </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -728,7 +737,7 @@
             <div class="location-content">
                 <div class="location-info">
                     <!-- EDIT: Address -->
-                    <a href="https://maps.google.com/?q=22263+E+Tierra+Grande+Ct+Queen+Creek+AZ+85142" target="_blank" class="location-card">
+                    <a href="https://maps.google.com/?q=22263+E+Tierra+Grande+Ct+Queen+Creek+AZ+85142" target="_blank" class="location-card" onclick="gtag('event', 'conversion', {'send_to': 'AW-784464144/i_9OCMH2tuMbEJDyh_YC'});">
                         <div class="location-icon">
                             <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
